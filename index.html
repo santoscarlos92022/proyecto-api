@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño frontend - proyecto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <aside class="left" aria-hidden="true">
+      <img src="img/FONDO.png" alt="Fondo decorativo abstracto" class="bg-img">
+      <h1 class="left-title">Hola,<br><span>Bienvenid@</span></h1>
+    </aside>
+
+    <section class="right" aria-labelledby="panel-title">
+      <!-- INICIO DE SESIÓN -->
+      <article class="form-box active" id="login" aria-live="polite">
+        <h2 id="panel-title">Empieza ahora</h2>
+        <p class="muted">Inicie sesión en su cuenta para continuar.</p>
+        <div class="social" aria-hidden="true">
+          <button type="button" class="social-btn" aria-label="Iniciar con Google"><i class="fa-brands fa-google"></i></button>
+          <button type="button" class="social-btn" aria-label="Iniciar con Apple"><i class="fa-brands fa-apple"></i></button>
+        </div>
+
+        <span class="or">o</span>
+
+        <form id="loginForm" novalidate>
+          <label for="loginUser">Usuario</label>
+          <input id="loginUser" name="loginUser" type="text" autocomplete="username" placeholder="ej. juan" required>
+          <label for="loginPass">Contraseña</label>
+          <div class="password-box">
+            <input id="loginPass" name="loginPass" type="password" autocomplete="current-password" placeholder="Ingrese su contraseña" required minlength="8">
+            <button type="button" class="toggle" aria-label="Mostrar contraseña"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="form-row">
+            <button type="submit" class="btn">Ingresar</button>
+          </div>
+          <p class="switch">¿No tienes una cuenta? <a href="#" id="goRegister">Regístrate</a></p>
+          <div id="loginMessage" class="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </article>
+
+      <!-- REGISTRO -->
+      <article class="form-box" id="register" aria-live="polite">
+        <h2>Registrar una cuenta</h2>
+        <p class="muted">Introduce tus datos personales para crear tu cuenta.</p>
+        <div class="social" aria-hidden="true">
+          <button type="button" class="social-btn" aria-label="Registrar con Google"><i class="fa-brands fa-google"></i></button>
+          <button type="button" class="social-btn" aria-label="Registrar con Apple"><i class="fa-brands fa-apple"></i></button>
+        </div>
+
+        <span class="or">o</span>
+
+        <form id="registerForm" novalidate>
+          <div class="row">
+            <div class="col">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="ej. Juan" required>
+            </div>
+            <div class="col">
+              <label for="apellido">Apellido</label>
+              <input id="apellido" name="apellido" type="text" placeholder="ej. Francisco" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="cedula">Cédula</label>
+              <input id="cedula" name="cedula" type="text" placeholder="ej. 5744***" pattern="[0-9]+" title="Solo números" required>
+            </div>
+            <div class="col">
+              <label for="nacimiento">Fecha de nacimiento</label>
+              <input id="nacimiento" name="nacimiento" type="date" required>
+            </div>
+          </div>
+
+          <label for="regUser">Usuario</label>
+          <input id="regUser" name="regUser" type="text" placeholder="ej. juan123" autocomplete="username" required>
+          <label for="regPass">Contraseña</label>
+          <div class="password-box">
+            <input id="regPass" name="regPass" type="password" autocomplete="new-password" placeholder="Al menos 8 caracteres" required minlength="8">
+            <button type="button" class="toggle" aria-label="Mostrar contraseña"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="form-row">
+            <button type="submit" class="btn">Registrar</button>
+          </div>
+          <p class="switch">¿Ya tienes una cuenta? <a href="#" id="goLogin">Iniciar sesión</a></p>
+          <div id="registerMessage" class="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
