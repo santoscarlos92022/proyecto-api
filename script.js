@@ -17,7 +17,6 @@ function showMessage(containerSelector, text, type = '') {
   if (type) el.classList.add(type);
 }
 
-// Mostrar/ocultar contraseña
 function initPasswordToggles() {
   qsa('.password-box .toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -38,7 +37,6 @@ function initPasswordToggles() {
   });
 }
 
-// Validaciones
 function validateRegistration(data) {
   const errors = [];
   if (!data.nombre || data.nombre.trim().length < 2) errors.push('Ingrese un nombre válido.');
@@ -53,7 +51,7 @@ function validateRegistration(data) {
 // API: Registro
 async function registerUser(data) {
   try {
-    const res = await fetch("http://localhost:3000/register", {
+    const res = await fetch("http://localhost/sena-proyecto-api/api-php/register.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -75,7 +73,7 @@ async function registerUser(data) {
 // API: Inicio de sesión
 async function attemptLogin(usuario, password) {
   try {
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch("http://localhost/sena-proyecto-api/api-php/login.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ usuario, password })
@@ -91,10 +89,8 @@ async function attemptLogin(usuario, password) {
   }
 }
 
-// FORMULARIOS
 function initForms() {
 
-  // Cambio de panel
   qs('#goRegister').addEventListener('click', e => { 
     e.preventDefault(); 
     showForm('register'); 
